@@ -29,6 +29,10 @@ nav ul {
   gap: 2em;
 }
 
+nav li {
+  display: inline;
+}
+
 nav li a {
   text-decoration: none;
   color: #3a3a3a;
@@ -47,6 +51,10 @@ main, section {
   background-color: #f7f5ee;
   border-radius: 8px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+  text-align: center;
 }
 
 h2 {
