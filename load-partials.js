@@ -10,7 +10,6 @@ function includeHTML(id, url) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  includeHTML("header-placeholder", "/header.html");
-  includeHTML("footer-placeholder", "/footer.html");
+  includeHTML("header-placeholder", "header.html");
+  includeHTML("footer-placeholder", "footer.html");
 });
-
