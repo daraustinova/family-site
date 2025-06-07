@@ -13,3 +13,4 @@ window.addEventListener('DOMContentLoaded', () => {
   includeHTML("header-placeholder", "/header.html");
   includeHTML("footer-placeholder", "/footer.html");
 });
+
