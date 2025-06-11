@@ -19,6 +19,8 @@
       display: block;
     }
   </style>
+<script src="https://cdn.jsdelivr.net/npm/js-family-tree@1.0.2/dist/tree.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/js-family-tree@1.0.2/dist/tree.min.css" rel="stylesheet" />
 </head>
 <body>
   <header class="site-header">
@@ -55,7 +57,48 @@
         </ul>
       </div>
     </section>
+<!-- После секции <section>Семья</section> в <main> -->
+<section>
+  <h2>Семейное древо</h2>
+  <div class="content show">
+    <div id="tree" style="width: 100%; height: 600px;"></div>
+    <p style="font-size: 0.9em; color: #666; margin-top: 0.5em;">Нажмите на узлы, чтобы увидеть потомков.</p>
+  </div>
+</section>
 
+<script>
+  const treeData = {
+    id: 1,
+    name: "Яков Андреевич Максименко",
+    birth: "1885",
+    death: "ок. 1955",
+    children: [
+      { id: 2, name: "Павел Яковлевич", birth: "1906", death: "1985" },
+      { id: 3, name: "Григорий", birth: "1910" },
+      { id: 4, name: "Дмитрий", birth: "1912" },
+      { id: 5, name: "Иван", birth: "1914" },
+      { id: 6, name: "Михаил", birth: "1916" },
+      { id: 7, name: "Ольга", birth: "1920" },
+      { id: 8, name: "Мария", birth: "1923" }
+    ]
+  };
+
+  window.addEventListener("DOMContentLoaded", () => {
+    new Tree(document.getElementById("tree"), {
+      data: treeData,
+      nodeWidth: 180,
+      nodeHeight: 100,
+      styles: {
+        node: {
+          borderRadius: 10,
+          background: "#fffdf5",
+          border: "1px solid #ccc",
+          padding: "8px"
+        }
+      }
+    });
+  });
+</script>
     <section>
       <h2>Исторический контекст</h2>
       <div class="content">
