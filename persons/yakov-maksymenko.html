@@ -70,11 +70,36 @@
     </section>
 
     <!-- ✅ Новая секция: Семейное древо -->
-   <section>
-  <h2>Семейное древо</h2>
-  <div id="tree" style="width: 100%; height: 500px;"></div>
-  <p class="tree-note">Нажмите на узлы, чтобы увидеть потомков.</p>
-</section>
+   <h1 style="text-align: center;">Семейное древо Якова Максименко</h1>
+
+  <div id="tree"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (typeof FamilyTree === 'undefined') {
+        console.error("❌ Библиотека FamilyTree не загружена");
+        return;
+      }
+
+      FamilyTree(document.getElementById("tree"), {
+        template: "john",
+        nodeBinding: {
+          field_0: "name",
+          field_1: "birth"
+        },
+        nodes: [
+          { id: 1, name: "Яков Максименко", birth: "1885–1955", gender: "male" },
+          { id: 2, pid: 1, name: "Павел", birth: "1906–1985", gender: "male" },
+          { id: 3, pid: 1, name: "Григорий", birth: "1910", gender: "male" },
+          { id: 4, pid: 1, name: "Дмитрий", birth: "1912", gender: "male" },
+          { id: 5, pid: 1, name: "Иван", birth: "1914", gender: "male" },
+          { id: 6, pid: 1, name: "Михаил", birth: "1916", gender: "male" },
+          { id: 7, pid: 1, name: "Ольга", birth: "1920", gender: "female" },
+          { id: 8, pid: 1, name: "Мария", birth: "1923", gender: "female" }
+        ]
+      });
+    });
+  </script>
     <section>
       <h2>Исторический контекст</h2>
       <div class="content">
@@ -157,34 +182,6 @@
 
     <p>В заключение можно сказать, что биография Якова Андреевича Максименко – это зеркальное отражение судьбы украинского крестьянина, чья жизнь пришлась на эпоху краха старого мира и строительства нового. Его личный опыт – от труда на собственном поле при царе до принудительной коллективной работы в колхозе – воплотил в себе все трагедии и надежды сельского народа того времени. Эта история, переданная через поколения, служит напоминанием о корнях семьи Максименко и о том, какие испытания выпали на долю их предка.</p>
   </main>
-<!-- Подключаем библиотеку (UMD-версия) -->
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    if (typeof FamilyTree === 'undefined') {
-      console.error("Библиотека FamilyTree не загружена.");
-      return;
-    }
-
-    FamilyTree(document.getElementById("tree"), {
-      nodes: [
-        { id: 1, name: "Яков", birth: "1885", death: "ок. 1955", gender: "male" },
-        { id: 2, pid: 1, name: "Павел", birth: "1906", death: "1985", gender: "male" },
-        { id: 3, pid: 1, name: "Григорий", birth: "1910", gender: "male" },
-        { id: 4, pid: 1, name: "Дмитрий", birth: "1912", gender: "male" },
-        { id: 5, pid: 1, name: "Иван", birth: "1914", gender: "male" },
-        { id: 6, pid: 1, name: "Михаил", birth: "1916", gender: "male" },
-        { id: 7, pid: 1, name: "Ольга", birth: "1920", gender: "female" },
-        { id: 8, pid: 1, name: "Мария", birth: "1923", gender: "female" }
-      ],
-      nodeBinding: {
-        field_0: "name",
-        field_1: "birth"
-      }
-    });
-  });
-</script>
-  
- 
 
   <footer>
     &copy; 2025 История семьи. Все права защищены. Сайт создан Дарьей Устиновой.
