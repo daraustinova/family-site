@@ -4,9 +4,8 @@
   <title>Яков Андреевич Максименко</title>
   <link rel="stylesheet" href="../assets/style.css">
 
-  <!-- Подключение библиотеки семейного древа -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/js-family-tree@1.0.2/dist/tree.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/js-family-tree@1.0.2/dist/tree.min.js"></script>
+ <!-- CDN UMD версия библиотеки -->
+<script src="https://cdn.jsdelivr.net/npm/js-family-tree@1.0.2/dist/tree.umd.js"></script>
 
   <style>
     section h2 {
@@ -68,11 +67,11 @@
     </section>
 
     <!-- ✅ Новая секция: Семейное древо -->
-    <section>
-      <h2>Семейное древо</h2>
-      <div id="tree"></div>
-      <p class="tree-note">Нажмите на узлы, чтобы увидеть потомков.</p>
-    </section>
+   <section>
+  <h2>Семейное древо</h2>
+  <div id="tree" style="width: 100%; height: 500px;"></div>
+  <p class="tree-note">Нажмите на узлы, чтобы увидеть потомков.</p>
+</section>
     <section>
       <h2>Исторический контекст</h2>
       <div class="content">
@@ -155,77 +154,38 @@
 
     <p>В заключение можно сказать, что биография Якова Андреевича Максименко – это зеркальное отражение судьбы украинского крестьянина, чья жизнь пришлась на эпоху краха старого мира и строительства нового. Его личный опыт – от труда на собственном поле при царе до принудительной коллективной работы в колхозе – воплотил в себе все трагедии и надежды сельского народа того времени. Эта история, переданная через поколения, служит напоминанием о корнях семьи Максименко и о том, какие испытания выпали на долю их предка.</p>
   </main>
-<script>
-    // Скрипт для раскрытия контента
-    document.querySelectorAll('section').forEach((section, index) => {
-      if (index < 2) return;
-      const heading = section.querySelector('h2');
-      const contentBlock = section.querySelector('.content');
-      if (heading && contentBlock) {
-        heading.addEventListener('click', () => {
-          contentBlock.classList.toggle('show');
-        });
-      }
-    });
+<!-- Подключаем библиотеку (UMD-версия) -->
+<script src="https://cdn.jsdelivr.net/npm/js-family-tree@1.0.2/dist/tree.umd.js"></script>
 
-    // Скрипт для построения дерева
-    window.addEventListener('DOMContentLoaded', () => {
-      const tree = new Tree(document.getElementById('tree'), {
-        nodeTreePadding: 20,
-        nodeWidth: 180,
-        nodeHeight: 80,
-        data: [
-          {
-            id: 1,
-            name: "Яков",
-            text: "Яков Андреевич Максименко (1885–1955?)"
-          },
-          {
-            id: 2,
-            pid: 1,
-            name: "Павел",
-            text: "Павел Яковлевич (1906–1985)"
-          },
-          {
-            id: 3,
-            pid: 1,
-            name: "Григорий",
-            text: "Григорий Максименко (1910–ум.)"
-          },
-          {
-            id: 4,
-            pid: 1,
-            name: "Дмитрий",
-            text: "Дмитрий Максименко (1912–ум.)"
-          },
-          {
-            id: 5,
-            pid: 1,
-            name: "Иван",
-            text: "Иван Максименко (1914–ум.)"
-          },
-          {
-            id: 6,
-            pid: 1,
-            name: "Михаил",
-            text: "Михаил Максименко (1916–ум.)"
-          },
-          {
-            id: 7,
-            pid: 1,
-            name: "Ольга",
-            text: "Ольга Максименко (1920–ум.)"
-          },
-          {
-            id: 8,
-            pid: 1,
-            name: "Мария",
-            text: "Мария Максименко (1923–ум.)"
-          }
-        ]
-      });
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    if (typeof Tree === 'undefined') {
+      console.error('Библиотека Tree не загружена.');
+      return;
+    }
+
+    const tree = new Tree(document.getElementById('tree'), {
+      nodeTreePadding: 20,
+      nodeWidth: 180,
+      nodeHeight: 80,
+      data: [
+        {
+          id: 1,
+          name: "Яков",
+          text: "Яков Андреевич Максименко (1885–1955?)"
+        },
+        { id: 2, pid: 1, name: "Павел", text: "Павел Яковлевич (1906–1985)" },
+        { id: 3, pid: 1, name: "Григорий", text: "Григорий (1910–ум.)" },
+        { id: 4, pid: 1, name: "Дмитрий", text: "Дмитрий (1912–ум.)" },
+        { id: 5, pid: 1, name: "Иван", text: "Иван (1914–ум.)" },
+        { id: 6, pid: 1, name: "Михаил", text: "Михаил (1916–ум.)" },
+        { id: 7, pid: 1, name: "Ольга", text: "Ольга (1920–ум.)" },
+        { id: 8, pid: 1, name: "Мария", text: "Мария (1923–ум.)" }
+      ]
     });
-  </script>
+  });
+</script>
+ 
 
   <footer>
     &copy; 2025 История семьи. Все права защищены. Сайт создан Дарьей Устиновой.
